@@ -5,7 +5,7 @@ const Square = ({ colorValue, hexValue, isDarkText }) => {
     <section 
     className="square"
      style={{ backgroundColor: colorValue,
-        color:isDarkText ? "#000" : "#FFF"
+        color:isDarkText ? "#FFF" : "#000"
     }}>
 
       <p>{colorValue ? colorValue : "Empty Value"}</p>
