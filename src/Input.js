@@ -1,28 +1,30 @@
-import React from 'react'
+import React from "react";
+import colorNames from "colornames";
 
-const Input = ({colorValue, setColorValue, setHexValue}) => {
+const Input = ({
+  colorValue,
+  setColorValue,
+  setHexValue,
+  isDarkText,
+  setDarkText,
+}) => {
   return (
-  <form onSubmit={(e) => e.preventDefault()}>
-    <label>Add Color Name: </label>
-    <input
-        autoFocus
+    <form onSubmit={(e) => e.preventDefault()}>
+      <label>Add Color Name: </label>
+      <input
         type="text"
+        autoFocus
         required
         placeholder="Add color name"
         value={colorValue}
         onChange={(e) => {
-            setColorValue(e.target.value)
-            setHexValue(e.target.value)
-            
+          setColorValue(e.target.value);
+          setHexValue(colorNames(e.target.value));
         }}
+      />
+      <button type="button" onClick={() => {setDarkText(!isDarkText)}}> Toggle Text Color</button>
+    </form>
+  );
+};
 
-     >
-       
-
-    </input>
-
-  </form>
-  )
-}
-
-export default Input
+export default Input;
